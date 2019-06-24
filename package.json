@@ -1,0 +1,42 @@
+{
+	"name": "typeof-utility",
+	"description": "Extended functions for defining and converting data types.",
+	"version": "1.0.0",
+	"homepage": "https://github.com/rozaverta/typeof-utility",
+	"author": "GoshaV Maniako (https://github.com/rozaverta)",
+	"repository": "rozaverta/typeof-utility",
+	"license": "MIT",
+	"main": "index.js",
+	"module": "src/index.js",
+	"files": [
+		"index.js",
+		"src/index.js",
+		"index.min.js"
+	],
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {},
+	"keywords": [
+		"is-object",
+		"is-string",
+		"is-boolean",
+		"is-plain",
+		"is-scalar",
+		"is-web",
+		"is-cli",
+		"is-number",
+		"is-numeric",
+		"is-dom",
+		"is-simbol",
+		"is-window",
+		"is-element",
+		"is-empty",
+		"javascript",
+		"type",
+		"typeof",
+		"tostring"
+	]
+},
