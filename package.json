@@ -1,7 +1,7 @@
 {
 	"name": "typeof-utility",
 	"description": "Extended functions for defining and converting data types.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"homepage": "https://github.com/rozaverta/typeof-utility",
 	"author": "GoshaV Maniako (https://github.com/rozaverta)",
 	"repository": "rozaverta/typeof-utility",

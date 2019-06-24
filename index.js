@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+exports.instanceOf = instanceOf;
 exports.typeOf = typeOf;
 exports.isNumber = isNumber;
 exports.isNumeric = isNumeric;

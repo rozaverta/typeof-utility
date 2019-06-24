@@ -12,7 +12,7 @@ const baseTypeObject = 'object';
  * @param {*} right
  * @returns {boolean}
  */
-function instanceOf(left, right) {
+export function instanceOf(left, right) {
 	return left instanceof right;
 }
 
