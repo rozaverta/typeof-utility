@@ -23,10 +23,17 @@ exports.isCli = isCli;
 exports.type = type;
 exports.toString = toString;
 
+var baseTypeFunction = "function";
+var baseTypeUndefined = "undefined";
+var baseTypeString = "string";
+var baseTypeNumber = "number";
+var baseTypeBoolean = "boolean";
+var baseTypeObject = "object";
+
 function instanceOf(left, right) {
 	if (
 		right != null &&
-		typeof Symbol !== "undefined" &&
+		typeof Symbol !== baseTypeUndefined &&
 		right[Symbol.hasInstance]
 	) {
 		return right[Symbol.hasInstance](left);
@@ -34,13 +41,6 @@ function instanceOf(left, right) {
 		return left instanceof right;
 	}
 }
-
-var baseTypeFunction = "function";
-var baseTypeUndefined = "undefined";
-var baseTypeString = "string";
-var baseTypeNumber = "number";
-var baseTypeBoolean = "boolean";
-var baseTypeObject = "object";
 
 function typeOf(value) {
 	if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
