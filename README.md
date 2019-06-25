@@ -60,7 +60,7 @@ isNumeric(textNumber); // boolean -> TRUE
 | isEmpty(value:&#160;any):&#160;boolean | Value is an empty object, collection, map, or set. | 
 | isWeb(value:&#160;any):&#160;boolean | The script works in the browser. | 
 | isCli(value:&#160;any):&#160;boolean | The script is running as a CLI. | 
-| type(value:&#160;any):&#160;string | Extended Value Type <br> Possible values: ``Null``, ``Undefined``, ``Array``, ``Date``, ``RegExp``, ``Event``, ``Node``, ``Window``, ``NodeList``, ``Object``, ``Number``, ``NaN``, ``Infinity``, ``Symbol`` | 
+| type(value:&#160;any):&#160;string | Extended Value Type <br> Possible values: `Null`, `Undefined`, `Array`, `Date`, `RegExp`, `Event`, `Node`, `Window`, `NodeList`, `Object`, `Number`, `NaN`, `Infinity`, `Symbol`, `String`, `Boolean`, `Function` | 
 | toString(value:&#160;any):&#160;string | Convert value to string. <br> Warning: if the value is a function, it will be called | 
 
 ### License

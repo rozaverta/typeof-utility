@@ -289,7 +289,9 @@ export function isCli() {
 /**
  * Extended Value Type
  *
- * Possible values: Null, Undefined, Array, Date, RegExp, Event, Node, Window, NodeList, Object, Number, NaN, Infinity, Symbol
+ * Possible values:
+ * Null, Undefined, Array, Date, RegExp, Event, Node, Window, NodeList, Object,
+ * Number, NaN, Infinity, Symbol, String, Boolean, Function
  *
  * @param {*} object
  * @returns {string}
@@ -299,7 +301,7 @@ export function type(object) {
 		return object === null ? 'Null' : 'Undefined'
 	}
 
-	let tof = typeOf(value);
+	let tof = typeOf(object);
 
 	if (tof === baseTypeObject) {
 		if (Array.isArray(object)) return 'Array';
