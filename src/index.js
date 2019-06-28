@@ -26,7 +26,7 @@ export function typeOf(value) {
 	return typeof value;
 }
 
-const isEvent = typeof Event !== baseTypeUndefined;
+const isEvent = typeof Event !== 'undefined';
 const objectPrototype = Object.prototype;
 const objectToString = value => objectPrototype.toString.call(value);
 const objectIsObject = value => objectToString(value) === '[object Object]';
@@ -36,23 +36,23 @@ let browser = false, nodeJs = false;
 try {
 	browser = (new Function("try{return this===window}catch(e){return false}"))();
 } catch (e) {
-	browser = typeof window !== baseTypeUndefined && window.setTimeout === setTimeout;
+	browser = typeof window !== 'undefined' && window.setTimeout === setTimeout;
 }
 
 try {
 	nodeJs = (new Function("try{return this===global}catch(e){return false}"))();
 } catch (e) {
-	nodeJs = typeof global !== baseTypeUndefined && global.setTimeout === setTimeout;
+	nodeJs = typeof global !== 'undefined' && global.setTimeout === setTimeout;
 }
 
 if (!nodeJs && !browser) {
-	nodeJs = Boolean(typeof module !== baseTypeUndefined && module.exports)
+	nodeJs = Boolean(typeof module !== 'undefined' && module.exports)
 }
 
 let tof = typeof Node;
 let isNodeNative = tof === baseTypeObject;
 
-if (!isNodeNative && tof === baseTypeFunction && typeof document !== baseTypeUndefined) {
+if (!isNodeNative && tof === baseTypeFunction && typeof document !== 'undefined') {
 	isNodeNative = instanceOf(document.createElement("span"), Node);
 }
 
@@ -184,14 +184,14 @@ export function isSymbol(value) {
 /**
  * Value is likely a DOM element.
  *
- * @param {*} object
+ * @param {*} value
  * @returns {boolean}
  */
-export function isDOMElement(object) {
+export function isDOMElement(value) {
 	if (isNodeNative) {
-		return instanceOf(object, Node) && value.nodeType === 1
+		return instanceOf(value, Node) && value.nodeType === 1
 	} else if (browser) {
-		return objectIsObject(object) && object.nodeType === 1 && !isPlainObject(value)
+		return objectIsObject(value) && value.nodeType === 1 && !isPlainObject(value)
 	} else {
 		return false
 	}
@@ -293,25 +293,25 @@ export function isCli() {
  * Null, Undefined, Array, Date, RegExp, Event, Node, Window, NodeList, Object,
  * Number, NaN, Infinity, Symbol, String, Boolean, Function
  *
- * @param {*} object
+ * @param {*} value
  * @returns {string}
  */
-export function type(object) {
-	if (object == null) {
-		return object === null ? 'Null' : 'Undefined'
+export function type(value) {
+	if (value == null) {
+		return value === null ? 'Null' : 'Undefined'
 	}
 
-	let tof = typeOf(object);
+	let tof = typeOf(value);
 
 	if (tof === baseTypeObject) {
-		if (Array.isArray(object)) return 'Array';
-		if (instanceOf(object, Date)) return 'Date';
-		if (instanceOf(object, RegExp)) return 'RegExp';
-		if (isEvent && instanceOf(object, Event)) return 'Event';
-		if (isDOMElement(object)) return 'Node';
-		if (isWindowElement(object)) return 'Window';
+		if (Array.isArray(value)) return 'Array';
+		if (instanceOf(value, Date)) return 'Date';
+		if (instanceOf(value, RegExp)) return 'RegExp';
+		if (isEvent && instanceOf(value, Event)) return 'Event';
+		if (isDOMElement(value)) return 'Node';
+		if (isWindowElement(value)) return 'Window';
 
-		tof = objectToString(object);
+		tof = objectToString(value);
 		if (tof === '[object HTMLCollection]' || tof === '[object NodeList]') return 'NodeList';
 		if (tof === '[object Symbol]') return 'Symbol';
 
@@ -319,8 +319,8 @@ export function type(object) {
 	}
 
 	if (tof === baseTypeNumber) {
-		if (isNaN(object)) return 'NaN';
-		if (!isFinite(object)) return 'Infinity'
+		if (isNaN(value)) return 'NaN';
+		if (!isFinite(value)) return 'Infinity'
 	}
 
 	return tof[0].toUpperCase() + tof.substr(1);

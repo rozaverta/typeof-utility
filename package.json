@@ -1,25 +1,38 @@
 {
 	"name": "typeof-utility",
 	"description": "Extended functions for defining and converting data types.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"homepage": "https://github.com/rozaverta/typeof-utility",
 	"author": "GoshaV Maniako (https://github.com/rozaverta)",
 	"repository": "rozaverta/typeof-utility",
 	"license": "MIT",
-	"main": "lib/index.js",
-	"module": "src/index.js",
+	"main": "cjs/typeof-utility.js",
+	"module": "esm/typeof-utility.js",
 	"files": [
-		"lib",
 		"src",
+		"cjs",
+		"esm",
 		"README.md",
 		"LICENSE"
 	],
 	"engines": {
 		"node": ">=0.10.0"
 	},
-	"scripts": {},
+	"scripts": {
+		"build": "rollup -c",
+		"prebuild": "rimraf cjs esm"
+	},
 	"dependencies": {},
-	"devDependencies": {},
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/plugin-transform-runtime": "^7.4.4",
+		"@babel/preset-env": "^7.4.5",
+		"rimraf": "^2.6.3",
+		"rollup": "^1.16.2",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-node-resolve": "^5.1.0",
+		"rollup-plugin-size-snapshot": "^0.9.0"
+	},
 	"keywords": [
 		"is-object",
 		"is-string",
