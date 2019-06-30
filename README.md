@@ -2,8 +2,6 @@
 
 > Extended functions for defining and converting data types.
 
-This library does not use dependencies.
-
 ## Install
 
 Install with [npm](https://www.npmjs.com/):

@@ -204,7 +204,7 @@ export function isDOMElement(value) {
  * @returns {boolean}
  */
 export function isWindowElement(element) {
-	if (!browser) {
+	if (!browser || element == null) {
 		return false
 	}
 
@@ -217,7 +217,7 @@ export function isWindowElement(element) {
 		return true
 	}
 
-	if ('self' in element) {
+	if (isObject(element) && 'self' in element) {
 		//`'self' in element` is true if
 		//the property exists on the object _or_ the prototype
 		//`element.hasOwnProperty('self')` is true only if
